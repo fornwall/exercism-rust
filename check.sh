@@ -30,6 +30,8 @@ for directory in */; do
   echo "$directory"
   cd "$directory"
 
+  cargo fmt
+
   cargo clippy $CLIPPY_PARAMS
 
   cargo test
