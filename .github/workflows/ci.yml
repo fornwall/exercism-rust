@@ -4,15 +4,16 @@ on: push
 
 jobs:
   check:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         rust: [stable, nightly-2022-10-29]
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
     - uses: hecrj/setup-rust-action@v1
       with:
         rust-version: ${{ matrix.rust }}
     - name: Check
-      run: make
+      run: ./check.sh

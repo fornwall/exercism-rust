@@ -1,4 +1,6 @@
 [package]
 edition = "2021"
 name = "hello-world"
+description = "Solutions to the hello-world exorcism exercise"
+license = "MIT"
 version = "1.1.0"
