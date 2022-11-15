@@ -1,6 +1,11 @@
 #!/bin/sh
 set -e -u
 
+if [ $# = 1 ]; then
+    DIRECTORIES=$1
+else
+    DIRECTORIES=*/
+fi
 
 CLIPPY_PARAMS="--all-targets -- \
  -W clippy::cast_lossless \
@@ -26,7 +31,7 @@ CLIPPY_PARAMS="--all-targets -- \
  -W clippy::unwrap_used \
  -D warnings"
 
-for directory in */; do
+for directory in $DIRECTORIES; do
   echo "$directory"
   cd "$directory"
 
