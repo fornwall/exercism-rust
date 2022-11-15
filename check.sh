@@ -44,6 +44,11 @@ for directory in $DIRECTORIES; do
        exit 1
   fi
 
+  if grep -F 'cfg(feature' tests/*.rs; then
+       echo Found features
+       exit 1
+  fi
+
   cd ..
 done
 
