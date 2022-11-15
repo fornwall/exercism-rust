@@ -1,2 +1,2 @@
 # exercism-rust
-Exercism rust exercises
+Exercism rust exercises: https://exercism.org/tracks/rust
