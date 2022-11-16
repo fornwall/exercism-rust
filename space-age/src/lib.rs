@@ -18,17 +18,10 @@ pub trait Planet {
 
 const EARTH_YEAR_IN_SECONDS: f64 = 31_557_600.0;
 
-pub struct Mercury;
-pub struct Venus;
-pub struct Earth;
-pub struct Mars;
-pub struct Jupiter;
-pub struct Saturn;
-pub struct Uranus;
-pub struct Neptune;
+macro_rules! define_planet {
+    ($t:ident, $v:literal) => {
+        pub struct $t;
 
-macro_rules! impl_Planet {
-    ($t:ty, $v:literal) => {
         impl Planet for $t {
             fn period_in_earth_years() -> f64 {
                 $v
@@ -37,11 +30,11 @@ macro_rules! impl_Planet {
     };
 }
 
-impl_Planet!(Mercury, 0.240_846_7);
-impl_Planet!(Venus, 0.615_197_26);
-impl_Planet!(Earth, 1.0);
-impl_Planet!(Mars, 1.880_815_8);
-impl_Planet!(Jupiter, 11.862_615);
-impl_Planet!(Saturn, 29.447_498);
-impl_Planet!(Uranus, 84.016_846);
-impl_Planet!(Neptune, 164.791_32);
+define_planet!(Mercury, 0.240_846_7);
+define_planet!(Venus, 0.615_197_26);
+define_planet!(Earth, 1.0);
+define_planet!(Mars, 1.880_815_8);
+define_planet!(Jupiter, 11.862_615);
+define_planet!(Saturn, 29.447_498);
+define_planet!(Uranus, 84.016_846);
+define_planet!(Neptune, 164.791_32);
