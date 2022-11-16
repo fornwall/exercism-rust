@@ -20,10 +20,6 @@ impl CalculatorInput {
 }
 
 pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
-    if inputs.is_empty() {
-        return None;
-    }
-
     let mut stack = Vec::<i32>::new();
     for input in inputs {
         if let CalculatorInput::Value(val) = input {
@@ -36,9 +32,5 @@ pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
         }
     }
 
-    if stack.len() == 1 {
-        Some(stack[0])
-    } else {
-        None
-    }
+    (stack.len() == 1).then(|| stack[0])
 }

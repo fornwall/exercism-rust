@@ -5,14 +5,17 @@ pub struct Player {
 }
 
 impl Player {
-    pub const fn revive(&self) -> Option<Self> {
-        let is_alive = self.health > 0;
-        if is_alive {
+    const fn is_alive(&self) -> bool {
+        self.health > 0
+    }
+
+    pub fn revive(&self) -> Option<Self> {
+        if self.is_alive() {
             return None;
         }
         Some(Self {
             health: 100,
-            mana: if self.level >= 10 { Some(100) } else { None },
+            mana: (self.level >= 10).then_some(100),
             level: self.level,
         })
     }
