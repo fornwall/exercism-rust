@@ -29,15 +29,21 @@ CLIPPY_PARAMS="--all-targets -- \
  -W clippy::unseparated-literal-suffix \
  -D warnings"
 
+: ${RUST_TOOLCHAIN:=stable}
+CARGO="cargo +${RUST_TOOLCHAIN}"
+
+echo "Cargo version:"
+$CARGO --version
+
 for directory in $DIRECTORIES; do
   echo "$directory"
   cd "$directory"
 
-  cargo fmt
+  $CARGO fmt
 
-  cargo clippy $CLIPPY_PARAMS
+  $CARGO clippy $CLIPPY_PARAMS
 
-  cargo test
+  $CARGO test
 
   if grep -F '[ignore]' tests/*.rs; then
        echo Found ignored tests

@@ -9,8 +9,6 @@ jobs:
       matrix:
         rust: [stable, nightly-2022-11-16]
         os: [ubuntu-latest, macos-latest, windows-latest]
-    env:
-      RUSTUP_TOOLCHAIN: ${{ matrix.rust }}
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
@@ -18,8 +16,8 @@ jobs:
       with:
         rust-version: ${{ matrix.rust }}
         components: clippy, rustfmt
-    - run: cargo --version
-    - run: rustc --version
     - name: Check
       shell: bash
       run: ./check.sh
+      env:
+        RUST_TOOLCHAIN: ${{ matrix.rust }}
