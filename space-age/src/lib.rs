@@ -12,19 +12,20 @@ impl From<u64> for Duration {
 const EARTH_YEAR_IN_SECONDS: f64 = 31_557_600.0;
 
 pub trait Planet {
+    fn period_in_earth_years() -> f64;
+
     fn years_during(d: &Duration) -> f64 {
         d.seconds as f64 / (Self::period_in_earth_years() * EARTH_YEAR_IN_SECONDS)
     }
-    fn period_in_earth_years() -> f64;
 }
 
 macro_rules! define_planet {
-    ($t:ident, $v:literal) => {
-        pub struct $t;
+    ($planet_name:ident, $period_length:literal) => {
+        pub struct $planet_name;
 
-        impl Planet for $t {
+        impl Planet for $planet_name {
             fn period_in_earth_years() -> f64 {
-                $v
+                $period_length
             }
         }
     };
