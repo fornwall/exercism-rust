@@ -16,6 +16,8 @@ jobs:
       with:
         rust-version: ${{ matrix.rust }}
         components: clippy, rustfmt
+    - run: cargo --version
+    - run: rustc --version
     - name: Check
       shell: bash
       run: ./check.sh
