@@ -6,6 +6,7 @@ const fn singular_or_plural<'a>(cardinality: u32, singular: &'a str, plural: &'a
     }
 }
 
+#[must_use]
 pub fn verse(n: u32) -> String {
     if n == 0 {
         "No more bottles of beer on the wall, no more bottles of beer.\n\
@@ -27,6 +28,7 @@ pub fn verse(n: u32) -> String {
     }
 }
 
+#[must_use]
 pub fn sing(start: u32, end: u32) -> String {
     (end..=start)
         .rev()

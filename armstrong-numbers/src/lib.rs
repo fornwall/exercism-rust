@@ -1,3 +1,4 @@
+#[must_use]
 pub fn is_armstrong_number(num: u32) -> bool {
     let num_str = num.to_string();
     let num_digits = num_str.len() as u32;

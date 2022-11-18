@@ -19,10 +19,12 @@ pub enum ResistorColor {
     White = 9,
 }
 
+#[must_use]
 pub fn color_to_value(color: ResistorColor) -> u32 {
     u32::from(color.int_value())
 }
 
+#[must_use]
 pub fn value_to_color_string(value: u32) -> String {
     let color = match ResistorColor::from_int(value.try_into().unwrap()) {
         Ok(value) => value,
@@ -33,6 +35,7 @@ pub fn value_to_color_string(value: u32) -> String {
     format!("{color:?}")
 }
 
+#[must_use]
 pub fn colors() -> Vec<ResistorColor> {
     all::<ResistorColor>().collect()
 }

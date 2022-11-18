@@ -16,10 +16,11 @@ fn is_anagram(word: &str, possible_anagram: &str) -> bool {
     c1 == c2
 }
 
+#[must_use]
 pub fn anagrams_for<'a>(word: &str, possible_anagrams: &'a [&str]) -> HashSet<&'a str> {
     possible_anagrams
         .iter()
         .filter(|p| is_anagram(word, p))
-        .cloned()
+        .copied()
         .collect()
 }

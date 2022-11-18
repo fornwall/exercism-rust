@@ -1,4 +1,5 @@
 /// Create an empty vector
+#[must_use]
 pub const fn create_empty() -> Vec<u8> {
     Vec::new()
 }
@@ -6,6 +7,7 @@ pub const fn create_empty() -> Vec<u8> {
 /// Create a buffer of `count` zeroes.
 ///
 /// Applications often use buffers when serializing data to send over the network.
+#[must_use]
 pub fn create_buffer(count: usize) -> Vec<u8> {
     vec![0; count]
 }
@@ -14,6 +16,7 @@ pub fn create_buffer(count: usize) -> Vec<u8> {
 ///
 /// Fibonacci's sequence is the list of numbers where the next number is a sum of the previous two.
 /// Its first five elements are `1, 1, 2, 3, 5`.
+#[must_use]
 pub fn fibonacci() -> Vec<u8> {
     vec![1, 1, 2, 3, 5]
 }

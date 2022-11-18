@@ -5,18 +5,22 @@ pub struct User {
 }
 
 impl User {
+    #[must_use]
     pub const fn new(name: String, age: u32, weight: f32) -> Self {
         Self { name, age, weight }
     }
 
+    #[must_use]
     pub fn name(&self) -> &str {
         &self.name
     }
 
+    #[must_use]
     pub const fn age(&self) -> u32 {
         self.age
     }
 
+    #[must_use]
     pub const fn weight(&self) -> f32 {
         self.weight
     }

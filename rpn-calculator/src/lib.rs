@@ -19,6 +19,7 @@ impl CalculatorInput {
     }
 }
 
+#[must_use]
 pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
     let mut stack = Vec::<i32>::new();
     for input in inputs {

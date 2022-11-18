@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+#[must_use]
 pub fn can_construct_note(magazine: &[&str], note: &[&str]) -> bool {
     let mut magazine_word_count = HashMap::<&str, u32>::new();
     for word in magazine {

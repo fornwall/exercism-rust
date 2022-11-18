@@ -1,3 +1,4 @@
+#[must_use]
 pub fn annotate(minefield: &[&str]) -> Vec<String> {
     minefield
         .iter()

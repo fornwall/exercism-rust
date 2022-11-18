@@ -1,3 +1,4 @@
+#[must_use]
 pub fn build_proverb(list: &[&str]) -> String {
     if list.is_empty() {
         return "".to_string();

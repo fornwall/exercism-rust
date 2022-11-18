@@ -7,6 +7,7 @@ pub struct Clock {
 }
 
 impl Clock {
+    #[must_use]
     pub fn new(hours: i32, minutes: i32) -> Self {
         Self {
             hours: (hours + minutes / 60 - i32::from(minutes % 60 < 0)).rem_euclid(24),
@@ -14,6 +15,7 @@ impl Clock {
         }
     }
 
+    #[must_use]
     pub fn add_minutes(&self, minutes: i32) -> Self {
         Self::new(self.hours, self.minutes + minutes)
     }

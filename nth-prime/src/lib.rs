@@ -1,3 +1,4 @@
+#[must_use]
 pub fn nth(n: u32) -> u32 {
     // https://stemhash.com/how-to-find-the-nth-prime-number/
 

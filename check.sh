@@ -7,7 +7,8 @@ else
     DIRECTORIES=*/
 fi
 
-CLIPPY_PARAMS="--all-targets -- \
+CLIPPY_PARAMS="-- \
+ -W clippy::must-use-candidate \
  -W clippy::cast_lossless \
  -W clippy::dbg_macro \
  -W clippy::manual_filter_map \

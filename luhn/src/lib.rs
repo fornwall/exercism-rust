@@ -1,4 +1,5 @@
 /// Check a Luhn checksum.
+#[must_use]
 pub fn is_valid(code: &str) -> bool {
     let stripped_code = code.replace(' ', "");
 

@@ -1,3 +1,4 @@
+#[must_use]
 pub fn abbreviate(phrase: &str) -> String {
     let mut acronym = String::new();
     let mut in_word = false;

@@ -5,10 +5,12 @@ pub struct Player {
 }
 
 impl Player {
+    #[must_use]
     const fn is_alive(&self) -> bool {
         self.health > 0
     }
 
+    #[must_use]
     pub fn revive(&self) -> Option<Self> {
         if self.is_alive() {
             return None;

@@ -1,3 +1,4 @@
+#[must_use]
 pub fn factors(n: u64) -> Vec<u64> {
     let mut primes = Vec::new();
     let mut remainder = n;
