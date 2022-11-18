@@ -8,9 +8,9 @@ pub fn reply(message: &str) -> &str {
 
     let shouting =
         !message.chars().any(char::is_lowercase) && message.chars().any(char::is_alphabetic);
-    let is_question = message.ends_with('?');
+    let questioning = message.ends_with('?');
 
-    match (shouting, is_question) {
+    match (shouting, questioning) {
         (true, true) => "Calm down, I know what I'm doing!",
         (true, false) => "Whoa, chill out!",
         (false, true) => "Sure.",
