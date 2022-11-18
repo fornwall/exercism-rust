@@ -9,17 +9,20 @@ pub fn nth(n: u32) -> u32 {
 
     loop {
         let sieve = candidates[0];
-        if primes.is_empty() || sieve > *primes.last().unwrap() {
-            primes.push(sieve);
-            if primes.len() == nth_prime as usize {
-                return sieve;
-            }
+
+        primes.push(sieve);
+
+        if primes.len() == nth_prime as usize {
+            return sieve;
         }
+
         candidates.retain(|num| num % sieve != 0);
+
         if candidates.is_empty() {
             let new_biggest_candidate = biggest_candidate + nth_prime;
-            candidates = primes.clone();
-            candidates.extend(biggest_candidate..new_biggest_candidate);
+            candidates = (biggest_candidate..new_biggest_candidate)
+                .filter(|num| primes.iter().all(|prime| num % prime != 0))
+                .collect();
             biggest_candidate = new_biggest_candidate;
         }
     }
