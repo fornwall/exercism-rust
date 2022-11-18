@@ -6,14 +6,8 @@ pub enum Comparison {
     Unequal,
 }
 
-fn contains<T: PartialEq>(mut haystack: &[T], needle: &[T]) -> bool {
-    while haystack.len() >= needle.len() {
-        if haystack.starts_with(needle) {
-            return true;
-        }
-        haystack = &haystack[1..];
-    }
-    false
+fn contains<T: PartialEq>(haystack: &[T], needle: &[T]) -> bool {
+    needle.is_empty() || haystack.windows(needle.len()).any(|w| w == needle)
 }
 
 pub fn sublist<T: PartialEq>(first_list: &[T], second_list: &[T]) -> Comparison {
